@@ -46,7 +46,6 @@ int main() {
         getline(badMovieFile, alias, '\t');
         getline(badMovieFile, seen, '\t');
         getline(badMovieFile, plot, '\n');
-        cout << name << endl;
 
         // converts string to lower case for easier searching
         convertStringToLowerCase(name);

@@ -12,7 +12,7 @@
 using namespace std;
 
 void getUserPrompt(); // gets input from user to make a selection
-// void convertStringToLowerCase(string &str); // converts string to lower case for easier searching
+void printUserInstructions(); // prints inputs user can make
 
 int main() {
     Movie::openAndReadMovieFile(); // opens movie list file, creates and populates movie objects
@@ -21,9 +21,19 @@ int main() {
     return 0; // success
 }
 
+void printUserInstructions() {
+    cout << "Enter 'l' to see a list of movies." << endl;
+    cout << "Enter 'f' to find a movie by the movie name." << endl;
+    cout << "Enter 'u' to update whether you have seen the movie." << endl;
+    cout << "Enter 'r' to find a random movie." << endl;
+    cout << "Enter 'g' to see a list of movies of a certain genre." << endl;
+    cout << "Enter 'a' to see analytics of the list of movies." << endl;
+    cout << "Enter 'q' to quit program." << endl;
+};
+
 void getUserPrompt() {
     string userPrompt;
-    cout << "Enter 'l' to see a list of movies. Enter 'f' to find a movie by the movie name. Enter 'u' to update whether you have seen the movie. Enter 'r' to find a random movie. Enter 'g' to see a list of movies of a certain genre. Enter 'q' to quit program." << endl;
+    printUserInstructions();
     getline(cin, userPrompt);
     while(userPrompt != "q") {
         if(userPrompt.length() > 1) {
@@ -55,11 +65,11 @@ void getUserPrompt() {
                     Movie::findAndPrintRandomMovieOfSpecificGenre();
                     break;
                 }
-                case 'a': {
+                case 'a': { // prints analytics of a movie
                     Movie::printMovieAnalytics();
                 }
                 case 'h': { // prints commands
-                    cout << "Enter 'l' to see a list of movies. Enter 'f' to find a movie by the movie name. Enter 'u' to update whether you have seen the movie. Enter 'r' to find a random movie. Enter 'q' to quit program." << endl;
+                    printUserIntructions();
                     break;
                 }
             }

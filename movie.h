@@ -24,6 +24,8 @@ class Movie {
         static void printMovieAnalytics(); // prints analytics on movies created
         static float getAverageYearOfMovies(); // caluculates average year of movies
         static float getAverageRatingOfMovies(); // gets the average rating of a movie
+        static int getSeenCount(); // get movies seen
+        static int getHasNotSeenCount(); // gets movies not seen
         void getInfo(); // prints movie info
         unsigned int getMovieId(); // get the movie id 
         int getReleaseYear(); // gets the movie release year

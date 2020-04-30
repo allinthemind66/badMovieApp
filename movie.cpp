@@ -334,15 +334,39 @@ float Movie::getAverageRatingOfMovies() {
     }
     return (total / listOfMovies.size());
 }
+
+/*
+    gets amount of movies that I have seen
+*/
+int Movie::getSeenCount() {
+    int count = 0;
+    vector<Movie*> listOfMovies = Movie::getListOfMovies();
+    for(size_t i = 0; i < listOfMovies.size(); i++) {
+        if(listOfMovies[i]->getHasSeenProperty() == "TRUE") {
+            count++;
+        }
+    }
+    return count;
+}
+
+int Movie::getHasNotSeenCount() {
+    vector<Movie*> listOfMovies = Movie::getListOfMovies();
+    int countOfMoviesSeen = Movie::getSeenCount();
+    return listOfMovies.size() - countOfMoviesSeen;
+}
 /*
     Prints analytics of all movies
 */
 void Movie::printMovieAnalytics() {
     vector<Movie*> listOfMovies = Movie::getListOfMovies();
+    cout << "-----------------------------" << endl;
     cout << "Here are certain analyses on the movies from the list:" << endl;
     cout << "Movie Count: " << listOfMovies.size() << endl;
     cout << "Average Movie Release Year: " << Movie::getAverageYearOfMovies() << endl;
     cout << "Average Movie Rating: " << Movie::getAverageRatingOfMovies() << endl;
+    cout << "Count of movies seen: " << Movie::getSeenCount() << endl;
+    cout << "Movies to go: " << Movie::getHasNotSeenCount() << endl;
+    cout << "-----------------------------" << endl;
 };
 
 /*

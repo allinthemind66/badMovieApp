@@ -28,6 +28,7 @@ void printUserInstructions() {
     cout << "Enter 'r' to find a random movie." << endl;
     cout << "Enter 'g' to see a list of movies of a certain genre." << endl;
     cout << "Enter 'a' to see analytics of the list of movies." << endl;
+    cout << "Enter 'j' to see a random movie of a specific genre." << endl;
     cout << "Enter 'q' to quit program." << endl;
 };
 
@@ -69,7 +70,7 @@ void getUserPrompt() {
                     Movie::printMovieAnalytics();
                 }
                 case 'h': { // prints commands
-                    printUserIntructions();
+                    printUserInstructions();
                     break;
                 }
             }
